@@ -1,0 +1,6 @@
+1. Added the frontend and backend folder to the project
+2. Using Vite for creating the react application 
+3. added required folders like models, controllers, etc to the backend folder
+4. Tailwind CSS configured and added to the frontend react folder
+5. Server created in the backend folder 
+6. Login logic added into the backend - model, controller and route
