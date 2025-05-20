@@ -1,19 +1,30 @@
 import express from 'express';
+import dotenv from 'dotenv';
+import mongoose from 'mongoose';
+import cors from 'cors';
+import userRouter from './src/routes/user.routes.js';
 
-// initializing
+dotenv.config();
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 5000;
 
-// Test route
-app.get('/', (req, res) => {
-    res.send('Server Started!');
-});
 
-// Start the server
-app.listen(PORT, (err) => {
-    if (err) {
-        console.error(`Error starting the server: ${err}`);
-        return;
-    }
+// Use CORS middleware
+app.use(cors({
+    origin: 'http://localhost:5173',
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    credentials: true
+}));
+
+app.use(express.json());
+app.use('/api/v1', userRouter);
+
+// Connect to MongoDB
+mongoose.connect(process.env.MONGO_URL)
+    .then(() => console.log("Mongoose is connected"))
+    .catch((err) => console.log("Error in connecting Mongoose:", err));
+
+// Start server
+app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 });
