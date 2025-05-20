@@ -13,8 +13,8 @@ This open-source project provides a pre-configured starter template for building
 ### 1. Fork and Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/mern-starter-package.git
-cd mern-starter-package
+git clone hhttps://github.com/YashChavanWeb/__open-source-project__MERN-starter-package.git
+cd open-source-project__MERN-starter-package
 ```
 
 ### 2. Install Dependencies
