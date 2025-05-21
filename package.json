@@ -1,0 +1,12 @@
+{
+  "name": "mern-starter-package",
+  "version": "1.0.0",
+  "description": "This open-source project provides a pre-configured starter template for building full-stack applications using the MERN stack (MongoDB, Express, React, Node.js).\\\r \\\r It offers a well-organized structure for both the frontend and backend, enabling developers to get started quickly without the need for complex setup.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Yash Chavan",
+  "license": "ISC"
+}
