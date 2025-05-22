@@ -9,3 +9,5 @@
 4. Implemented authentication logic in the backend (MongoDB models, controllers, routes). [Link](https://github.com/YashChavanWeb/__open-source-project__MERN-starter-package/tree/26e085ed95222bf2517ad30eb1ebb7488ba02a16)
 
 5. Integrated JWT authentication with frontend. [Link](https://github.com/YashChavanWeb/__open-source-project__MERN-starter-package/tree/ea4a0b6a14a1a066b0a507239e8a2297ca50ad1d)
+
+6. Completed with the razorpay payment integration. [Link](https://github.com/YashChavanWeb/__open-source-project__MERN-starter-package/tree/386115b57496909edd6d1e5c0cbde89d94d6cc19)

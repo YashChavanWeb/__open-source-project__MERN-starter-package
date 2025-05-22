@@ -4,6 +4,7 @@ import mongoose from 'mongoose';
 import cors from 'cors';
 import userRouter from './src/routes/user.routes.js';
 import paymentRoutes from './src/routes/payment.routes.js';
+import uploadRoutes from './src/routes/upload.routes.js';
 
 dotenv.config();
 const app = express();
@@ -20,6 +21,7 @@ app.use(cors({
 app.use(express.json());
 app.use('/api/v1', userRouter);
 app.use('/api/v1/payment', paymentRoutes);
+app.use('/api/v1/upload', uploadRoutes);
 
 // Connect to MongoDB
 mongoose.connect(process.env.MONGO_URL)

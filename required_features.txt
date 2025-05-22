@@ -1,5 +1,6 @@
 Required features:
 
 - Sidebar for Navigation
-- Payment Gateway Integration (Stripe or Razorpay)
 - Landing Page and basic Components
+- Form integration using third party library
+- dashboard and analytics
