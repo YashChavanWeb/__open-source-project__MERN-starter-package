@@ -31,10 +31,10 @@ function Signin() {
             const response = await axios.post('http://localhost:3000/api/v1/signin', formData);
 
             if (response.status === 200) {
-                const { token, username } = response.data; // Destructure the response
+                const { token, username } = response.data;
                 localStorage.setItem('token', token);
                 if (username) {
-                    localStorage.setItem('username', username); // Store username if it exists
+                    localStorage.setItem('username', username);
                 }
                 navigate('/');
             }
@@ -49,39 +49,45 @@ function Signin() {
         }
     };
 
-
     return (
-        <div className="min-h-screen bg-purple-50 flex items-center justify-center">
-            <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
-                <h1 className="text-3xl font-bold text-purple-700 mb-6">Sign in</h1>
-                {error && <p className="text-red-500 mb-4">{error}</p>}
-                <form onSubmit={handleSubmit} className="flex flex-col space-y-4">
-                    <label htmlFor="email" className="sr-only">Email</label>
+        <div
+            className="min-h-screen flex items-center justify-center px-4"
+            style={{ backgroundColor: '#F2F2F2', fontFamily: 'Inter, sans-serif' }}
+        >
+            <div className="bg-white/30 backdrop-blur-xl p-10 rounded-2xl shadow-[0_10px_50px_rgba(0,0,0,0.25)] w-full max-w-md border border-white/40 transition-all">
+                <h1 className="text-4xl font-extrabold text-purple-800 mb-6 text-center">Welcome Back</h1>
+                <p className="text-purple-900 text-center mb-6 text-sm">Sign in to access your account</p>
+                {error && <p className="text-red-600 mb-4 text-center font-medium">{error}</p>}
+                <form onSubmit={handleSubmit} className="flex flex-col space-y-5">
                     <input
                         type="email"
-                        placeholder="Email"
+                        placeholder="Email address"
                         id="email"
                         onChange={handleChange}
                         value={formData.email}
-                        className="p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
+                        className="p-3 bg-white/70 border border-white/40 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500 placeholder-purple-500 text-purple-900"
                     />
-                    <label htmlFor="password" className="sr-only">Password</label>
                     <input
                         type="password"
                         placeholder="Password"
                         id="password"
                         onChange={handleChange}
                         value={formData.password}
-                        className="p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
+                        className="p-3 bg-white/70 border border-white/40 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500 placeholder-purple-500 text-purple-900"
                     />
                     <button
                         type="submit"
-                        className="bg-purple-600 text-white p-3 rounded-lg shadow hover:bg-purple-700 transition duration-300"
+                        className="bg-gradient-to-tr from-purple-600 to-purple-800 text-white py-3 rounded-xl shadow-xl hover:shadow-purple-800/40 transition duration-300 font-semibold tracking-wide"
                     >
                         Sign in
                     </button>
                 </form>
-                <p className="mt-10">Don't have an account? <Link to="/signup" className="text-purple-600 hover:underline">Sign up</Link></p>
+                <p className="mt-8 text-center text-purple-900 text-sm">
+                    Don't have an account?{' '}
+                    <Link to="/signup" className="text-purple-700 hover:underline font-semibold">
+                        Sign up
+                    </Link>
+                </p>
             </div>
         </div>
     );
