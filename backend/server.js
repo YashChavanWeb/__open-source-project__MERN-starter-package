@@ -5,6 +5,11 @@ import cors from 'cors';
 import userRouter from './src/routes/user.routes.js';
 import paymentRoutes from './src/routes/payment.routes.js';
 import uploadRoutes from './src/routes/upload.routes.js';
+import session from 'express-session';
+import passport from 'passport';
+
+import './passport.js';
+import authRoutes from './src/routes/auth.js';
 
 dotenv.config();
 const app = express();
@@ -17,6 +22,25 @@ app.use(cors({
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     credentials: true
 }));
+
+app.use(
+  session({
+    secret: process.env.SESSION_SECRET,
+    resave: false,
+    saveUninitialized: false,
+  })
+);
+
+app.use(passport.initialize());
+app.use(passport.session());
+
+mongoose
+  .connect(process.env.MONGO_URI)
+  .then(() => console.log('MongoDB connected'))
+  .catch((err) => console.error(err));
+
+app.use('/', authRoutes);
+
 
 app.use(express.json());
 app.use('/api/v1', userRouter);
